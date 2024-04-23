@@ -13,6 +13,12 @@ td {text-align: center;}
 <script src="./scripts/setup.js"></script>
 <script src="./data/data.js"></script>
 
+<b>Base Ability Score Array:</b> 
+<select id="abilityScoreArraySelection" onchange="change_abilityScoreArraySelection(this.value)">
+	
+</select>
+</br></br>
+
 <table id="StandardAbilities">
   <tr>
 	<th></th>
@@ -25,35 +31,51 @@ td {text-align: center;}
   </tr>
   <tr>
     <td><b>Base Score</b></td>
-    <td id="strengthScore">0</td>
-    <td id="dexterityScore">0</td>
-	<td id="constitutionScore">0</td>
-	<td id="intelligenceScore">0</td>
-	<td id="wisdomScore">0</td>
-	<td id="charismaScore">0</td>
+    <td>
+		<select id="baseStrengthScore" onchange="updateBaseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<select id="baseDexterityScore" onchange="updateBaseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<select id="baseConstitutionScore" onchange="updateBaseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<select id="baseIntelligenceScore" onchange="updateBaseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<select id="baseWisdomScore" onchange="updateBaseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<select id="baseCharismaScore" onchange="updateBaseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
   </tr>
   <!-- todo: Add in class scores, racial modified, other things, final scores -->
   <tr>
-	<td><b>Modifier</b></td>
-	<td id="strengthModifier">0</td>
-	<td id="dexterityModifier">0</td>
-	<td id="constitutionModifier">0</td>
-	<td id="intelligenceModifier">0</td>
-	<td id="wisdomModifier">0</td>
-	<td id="charismaModifier">0</td>
+	<td><b>Base Modifier</b></td>
+	<td id="baseStrengthModifier">0</td>
+	<td id="baseDexterityModifier">0</td>
+	<td id="baseConstitutionModifier">0</td>
+	<td id="baseIntelligenceModifier">0</td>
+	<td id="baseWisdomModifier">0</td>
+	<td id="baseCharismaModifier">0</td>
   </tr>
 </table>
 
 </br>
-<b>Ability Score Array:</b> 
-<select id="abilityScoreArray" onchange="change_abilityScoreArray(this.value)">
-    <option value="standard">Standard (15,14,13,12,10,8)</option>
-    <option value="wellRounded">Well-Rounded (14,13,13,12,12,10)</option>
-    <option value="specialized">Specialized (15,15,13,11,9,8)</option>
-	<option value="heroic">Heroic (17,16,15,14,12,10)</option>
-	<option value="peasant">Peasant (12,11,10,10,10,8)</option>
-	<option value="custom">Custom</option>
-</select>
+
 
 <p id="demo">A Paragraph.</p>
 
@@ -65,8 +87,12 @@ Something: <select id="myselect" onchange="change_myselect(this.value)">
  </select>
   
 
-<button type="button" onclick="populate_abilityScoreArray()">Try it</button>
-<script>populate_abilityScoreArray()</script>
+<button type="button" onclick="populate_abilityScoreValues()">Try it</button>
+
+<script>
+	populate_abilityScoreArrays();
+	populate_abilityScoreOptions();
+</script>
 
 <p>This example links to "myScript.js".</p>
 <p>(myFunction is stored in "myScript.js")</p>

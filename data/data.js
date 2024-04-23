@@ -6,7 +6,7 @@ var data = {
 data.constraints = {};
 
 data.constraints.customAbilityScoreAtFirstLevelMax = 18;
-data.constraints.customAbilityScoreAtFirstLevelMin = 8;
+data.constraints.customAbilityScoreAtFirstLevelMin = 1;
 
 data.abilityScoreArrays = [];
 
@@ -40,5 +40,5 @@ data.abilityScoreArrays.push(
 		"name":"custom",
 		"description":"Custom",
 		"stats":"*"
-	},
+	}
 );
