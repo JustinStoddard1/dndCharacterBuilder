@@ -58,7 +58,7 @@ function update_baseScore(id, value){
 		delete remainingAbilityScores[remainingAbilityScores.indexOf(parseInt(value))];
 	}
 	
-	remainingAbilityScores.sort();
+	remainingAbilityScores.sort(function (a, b) {  return a - b;  });
 	remainingAbilityScores.reverse();
 	
 	document.getElementById(scoreDisplayId).innerHTML = value;
