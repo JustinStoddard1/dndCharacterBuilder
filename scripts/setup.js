@@ -17,57 +17,85 @@ a.forEach((element) => {
 });
 */
 
-function populate_abilityScoreOptions(arrayName){
-	if (arrayName === undefined){
-		arrayName = data.abilityScoreArrays[0].name
-	}
-	
-	var statList = data.abilityScoreArrays.find(t => t.name === arrayName).stats;
-	
-	var innerHTML = '<option value="select">Select</option>\n';	
-	statList.forEach((element) => {innerHTML += createSelectOption(element, element)});	
-	
-	document.getElementById("baseStrengthScore").innerHTML = innerHTML;
-	document.getElementById("baseDexterityScore").innerHTML = innerHTML;
-	document.getElementById("baseConstitutionScore").innerHTML = innerHTML;
-	document.getElementById("baseIntelligenceScore").innerHTML = innerHTML;
-	document.getElementById("baseWisdomScore").innerHTML = innerHTML;
-	document.getElementById("baseCharismaScore").innerHTML = innerHTML;
-	
-	/*
-	<select id="abilityScoreArray" onchange="change_abilityScoreArray(this.value)">
-		<option value="standard">Standard (15,14,13,12,10,8)</option>
-		<option value="wellRounded">Well-Rounded (14,13,13,12,12,10)</option>
-		<option value="specialized">Specialized (15,15,13,11,9,8)</option>
-		<option value="heroic">Heroic (17,16,15,14,12,10)</option>
-		<option value="peasant">Peasant (12,11,10,10,10,8)</option>
-		<option value="custom">Custom</option>
-	</select>
-	*/
+function populate_abilityScoreOptions(){
+	scoreIds.forEach((scoreId)=>{
+		let innerHTML = '<option value="select">Select</option>\n';
+		innerHTML += '<option value="remove">Remove</option>\n';
+		remainingAbilityScores.forEach((score)=>{
+			innerHTML += '<option value="' + score + '">' + score + '</option>\n';
+		});
+		
+		document.getElementById(scoreId).innerHTML = "-";
+		document.getElementById(scoreId + "_selector").innerHTML = innerHTML;
+	});
 }
 
-function updateBaseScore(scoreId, value){}
+function update_baseScore(id, value){
+	// When one is selected, need to remove it from all lists without affecting the existing values
+	
+	// If "select" was selected, just return
+	if (value === "select"){
+		return;
+	}
+	
+	let scoreDisplayId = id.split('_')[0];
+	let currValue = document.getElementById(scoreDisplayId).innerHTML
+	
+	// If "Remove" was selected, set the value to "-" and add the number back to the list of available numbers
+	if (value === "remove"){
+		if (currValue !== "-"){
+			remainingAbilityScores.push(parseInt(currValue));
+		}
+		value = "-";
+	}
+	else {
+		// If there's already a value selected, send it back into the Array
+		if (currValue !== "-"){
+			remainingAbilityScores.push(parseInt(currValue));
+		}
+		
+		// Get rid of this from the remaining scores
+		delete remainingAbilityScores[remainingAbilityScores.indexOf(parseInt(value))];
+	}
+	
+	remainingAbilityScores.sort();
+	remainingAbilityScores.reverse();
+	
+	document.getElementById(scoreDisplayId).innerHTML = value;
+	
+	
+	scoreIds.forEach((scoreId)=>{
+		//let selectedRemainingScoreIndex = baseScoreSelection[scoreId].remainingScores.indexOf(baseScoreSelection[scoreId].remainingScores[value]) - 1
+		//delete baseScoreSelection[scoreId].remainingScores[selectedRemainingScoreIndex];
+		//delete abc[abc.indexOf("abc")];
+			
+		let innerHTML = '<option value="select">Select</option>\n';
+		innerHTML += '<option value="remove">Remove</option>\n';
+		remainingAbilityScores.forEach((score)=>{
+			innerHTML += '<option value="' + score + '">' + score + '</option>\n';
+		});
+		
+		document.getElementById(scoreId + "_selector").innerHTML = innerHTML;
+	});
+}
 
 function populate_abilityScoreArrays(){
-	var innerHTML = ''
+	let innerHTML = ''
 	
 	data.abilityScoreArrays.forEach((element) => {
-		innerHTML += createSelectOption(element.name, element.description) + "/n"
+		innerHTML += createSelectOption(element.name, element.description) + "/n";
 	});
 	
-	document.getElementById("abilityScoreArraySelection").innerHTML = innerHTML
-	/*
-	<option value="standard">Standard (15,14,13,12,10,8)</option>
-    <option value="wellRounded">Well-Rounded (14,13,13,12,12,10)</option>
-    <option value="specialized">Specialized (15,15,13,11,9,8)</option>
-	<option value="heroic">Heroic (17,16,15,14,12,10)</option>
-	<option value="peasant">Peasant (12,11,10,10,10,8)</option>
-	<option value="custom">Custom</option>
-	*/
+	document.getElementById("abilityScoreArraySelection").innerHTML = innerHTML;
+	
+	// Set the first element to the current one
+	change_abilityScoreArraySelection(data.abilityScoreArrays[0].name);
 }
 
 function change_abilityScoreArraySelection(arrayName){
-	populate_abilityScoreOptions(arrayName)
+	selectedAbilityScoreArray = data.abilityScoreArrays.find(t => t.name === arrayName).stats;
+	remainingAbilityScores = selectedAbilityScoreArray;
+	populate_abilityScoreOptions();
 }
 
 function get_modifier(val){

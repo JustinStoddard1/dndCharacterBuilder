@@ -2,6 +2,67 @@
 <html>
 <body>
 
+<table id="StandardAbilities">
+  <tr>
+	<th></th>
+    <th>Strength</th>
+    <th>Dexterity</th>
+    <th>Constitution</th>
+	<th>Intelligence</th>
+	<th>Wisdom</th>
+	<th>Charisma</th>
+  </tr>
+  <tr>
+    <td><b>Base Score</b></td>
+    <td>
+		<div id="baseStrengthScore"><b>0</b></div>
+		<select id="baseStrengthScore_selector" onchange="update_baseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<div id="baseDexterityScore"><b>0</b></div>
+		<select id="baseDexterityScore_selector" onchange="update_baseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<div id="baseConstitutionScore"><b>0</b></div>
+		<select id="baseConstitutionScore_selector" onchange="update_baseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<div id="baseIntelligenceScore"><b>0</b></div>
+		<select id="baseIntelligenceScore_selector" onchange="update_baseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<div id="baseWisdomScore"><b>0</b></div>
+		<select id="baseWisdomScore_selector" onchange="update_baseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+	<td>
+		<div id="baseCharismaScore"><b>0</b></div>
+		<select id="baseCharismaScore_selector" onchange="update_baseScore(this.id, this.value)">
+			<option value="select">Select</option>
+		</select>
+	</td>
+  </tr>
+  <!-- todo: Add in class scores, racial modified, other things, final scores -->
+  <tr>
+	<td><b>Base Modifier</b></td>
+	<td id="baseStrengthModifier">0</td>
+	<td id="baseDexterityModifier">0</td>
+	<td id="baseConstitutionModifier">0</td>
+	<td id="baseIntelligenceModifier">0</td>
+	<td id="baseWisdomModifier">0</td>
+	<td id="baseCharismaModifier">0</td>
+  </tr>
+</table>
+
 <h2>Demo External JavaScript</h2>
 
 <p id="demo">A Paragraph.</p>
