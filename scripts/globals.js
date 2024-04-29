@@ -19,7 +19,7 @@ var characterInfo = {
 		"wisdom":"-",
 		"charisma":"-"
 	},
-	"raceModifier":{
+	"raceBonus":{
 		"strength":"-",
 		"dexterity":"-",
 		"constitution":"-",
@@ -27,7 +27,15 @@ var characterInfo = {
 		"wisdom":"-",
 		"charisma":"-"
 	},
-	"classModifier":{
+	"finalScore":{
+		"strength":"-",
+		"dexterity":"-",
+		"constitution":"-",
+		"intelligence":"-",
+		"wisdom":"-",
+		"charisma":"-"		
+	},
+	"finalModifier":{
 		"strength":"-",
 		"dexterity":"-",
 		"constitution":"-",

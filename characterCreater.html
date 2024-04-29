@@ -17,6 +17,16 @@ table, tr, th, td {
 <script src="./scripts/setup.js"></script>
 <script src="./data/data.js"></script>
 
+<b>Name:</b>
+<input type="text" id="characterName" onchange="change_characterName(this.value)"/>
+</br></br>
+
+<b>Race:</b>
+<select id="raceSelection" onchange="change_race(this.value)">
+	
+</select>
+</br></br>
+
 <b>Base Ability Score Array:</b> 
 <select id="abilityScoreArraySelection" onchange="change_abilityScoreArraySelection(this.value)">
 	
@@ -34,7 +44,7 @@ table, tr, th, td {
 	<th>Charisma</th>
   </tr>
   <tr>
-    <td><b>Base Score</b></td>
+    <td><b>Base Scores</b></td>
     <td>
 		<div id="strength_baseScore"><b>0</b></div>
 		<select id="strength_baseScore_selector" onchange="update_baseScore(this.id, this.value)">
@@ -74,13 +84,40 @@ table, tr, th, td {
   </tr>
   <!-- todo: Add in class scores, racial modified, other things, final scores -->
   <tr>
-	<td><b>Base Modifier</b></td>
+	<td><b>Base Modifiers</b></td>
 	<td id="strength_baseScoreModifier">-</td>
 	<td id="dexterity_baseScoreModifier">-</td>
 	<td id="constitution_baseScoreModifier">-</td>
 	<td id="intelligence_baseScoreModifier">-</td>
 	<td id="wisdom_baseScoreModifier">-</td>
 	<td id="charisma_baseScoreModifier">-</td>
+  </tr>
+  <tr>
+	<td><b>Racial Bonus</b></td>
+	<td id="strength_racialScoreBonus">-</td>
+	<td id="dexterity_racialScoreBonus">-</td>
+	<td id="constitution_racialScoreBonus">-</td>
+	<td id="intelligence_racialScoreBonus">-</td>
+	<td id="wisdom_racialScoreBonus">-</td>
+	<td id="charisma_racialScoreBonus">-</td>
+  </tr>
+  <tr style="border-top:3px solid black">
+	<td><b>Final Scores</b></td>
+	<td id="strength_finalScore">-</td>
+	<td id="dexterity_finalScore">-</td>
+	<td id="constitution_finalScore">-</td>
+	<td id="intelligence_finalScore">-</td>
+	<td id="wisdom_finalScore">-</td>
+	<td id="charisma_finalScore">-</td>
+  </tr>
+  <tr>
+	<td><b>Final Modifiers</b></td>
+	<td id="strength_finalScoreModifier">-</td>
+	<td id="dexterity_finalScoreModifier">-</td>
+	<td id="constitution_finalScoreModifier">-</td>
+	<td id="intelligence_finalScoreModifier">-</td>
+	<td id="wisdom_finalScoreModifier">-</td>
+	<td id="charisma_finalScoreModifier">-</td>
   </tr>
 </table>
 

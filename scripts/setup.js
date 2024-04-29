@@ -144,3 +144,7 @@ function reset_baseScores(){
 		characterInfo.baseModifier[scoreName] = "-";
 	});
 }
+
+function change_characterName(name){
+	characterInfo.name = name;
+}
