@@ -1,8 +1,4 @@
-var data = {
-    "name": "abc",
-    "desc": "def"
-};
-
+data = {};
 data.constraints = {};
 
 data.constraints.customAbilityScoreAtFirstLevelMax = 18;

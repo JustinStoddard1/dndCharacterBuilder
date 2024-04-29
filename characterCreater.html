@@ -36,38 +36,38 @@ table, tr, th, td {
   <tr>
     <td><b>Base Score</b></td>
     <td>
-		<div id="baseStrengthScore"><b>0</b></div>
-		<select id="baseStrengthScore_selector" onchange="update_baseScore(this.id, this.value)">
+		<div id="strength_baseScore"><b>0</b></div>
+		<select id="strength_baseScore_selector" onchange="update_baseScore(this.id, this.value)">
 			<option value="select">Select</option>
 		</select>
 	</td>
 	<td>
-		<div id="baseDexterityScore"><b>0</b></div>
-		<select id="baseDexterityScore_selector" onchange="update_baseScore(this.id, this.value)">
+		<div id="dexterity_baseScore"><b>0</b></div>
+		<select id="dexterity_baseScore_selector" onchange="update_baseScore(this.id, this.value)">
 			<option value="select">Select</option>
 		</select>
 	</td>
 	<td>
-		<div id="baseConstitutionScore"><b>0</b></div>
-		<select id="baseConstitutionScore_selector" onchange="update_baseScore(this.id, this.value)">
+		<div id="constitution_baseScore"><b>0</b></div>
+		<select id="constitution_baseScore_selector" onchange="update_baseScore(this.id, this.value)">
 			<option value="select">Select</option>
 		</select>
 	</td>
 	<td>
-		<div id="baseIntelligenceScore"><b>0</b></div>
-		<select id="baseIntelligenceScore_selector" onchange="update_baseScore(this.id, this.value)">
+		<div id="intelligence_baseScore"><b>0</b></div>
+		<select id="intelligence_baseScore_selector" onchange="update_baseScore(this.id, this.value)">
 			<option value="select">Select</option>
 		</select>
 	</td>
 	<td>
-		<div id="baseWisdomScore"><b>0</b></div>
-		<select id="baseWisdomScore_selector" onchange="update_baseScore(this.id, this.value)">
+		<div id="wisdom_baseScore"><b>0</b></div>
+		<select id="wisdom_baseScore_selector" onchange="update_baseScore(this.id, this.value)">
 			<option value="select">Select</option>
 		</select>
 	</td>
 	<td>
-		<div id="baseCharismaScore"><b>0</b></div>
-		<select id="baseCharismaScore_selector" onchange="update_baseScore(this.id, this.value)">
+		<div id="charisma_baseScore"><b>0</b></div>
+		<select id="charisma_baseScore_selector" onchange="update_baseScore(this.id, this.value)">
 			<option value="select">Select</option>
 		</select>
 	</td>
@@ -75,71 +75,14 @@ table, tr, th, td {
   <!-- todo: Add in class scores, racial modified, other things, final scores -->
   <tr>
 	<td><b>Base Modifier</b></td>
-	<td id="baseStrengthModifier">0</td>
-	<td id="baseDexterityModifier">0</td>
-	<td id="baseConstitutionModifier">0</td>
-	<td id="baseIntelligenceModifier">0</td>
-	<td id="baseWisdomModifier">0</td>
-	<td id="baseCharismaModifier">0</td>
+	<td id="strength_baseScoreModifier">-</td>
+	<td id="dexterity_baseScoreModifier">-</td>
+	<td id="constitution_baseScoreModifier">-</td>
+	<td id="intelligence_baseScoreModifier">-</td>
+	<td id="wisdom_baseScoreModifier">-</td>
+	<td id="charisma_baseScoreModifier">-</td>
   </tr>
 </table>
-
-<!--
-<table id="StandardAbilities">
-  <tr>
-	<th></th>
-    <th>Strength</th>
-    <th>Dexterity</th>
-    <th>Constitution</th>
-	<th>Intelligence</th>
-	<th>Wisdom</th>
-	<th>Charisma</th>
-  </tr>
-  <tr>
-    <td><b>Base Score</b></td>
-    <td>
-		<select id="baseStrengthScore" onchange="update_baseScore(this.id, this.value)">
-			<option value="select">Select</option>
-		</select>
-	</td>
-	<td>
-		<select id="baseDexterityScore" onchange="update_baseScore(this.id, this.value)">
-			<option value="select">Select</option>
-		</select>
-	</td>
-	<td>
-		<select id="baseConstitutionScore" onchange="update_baseScore(this.id, this.value)">
-			<option value="select">Select</option>
-		</select>
-	</td>
-	<td>
-		<select id="baseIntelligenceScore" onchange="update_baseScore(this.id, this.value)">
-			<option value="select">Select</option>
-		</select>
-	</td>
-	<td>
-		<select id="baseWisdomScore" onchange="update_baseScore(this.id, this.value)">
-			<option value="select">Select</option>
-		</select>
-	</td>
-	<td>
-		<select id="baseCharismaScore" onchange="update_baseScore(this.id, this.value)">
-			<option value="select">Select</option>
-		</select>
-	</td>
-  </tr>
-  <!-- todo: Add in class scores, racial modified, other things, final scores -->
-  
-  <!--tr>
-	<td><b>Base Modifier</b></td>
-	<td id="baseStrengthModifier">0</td>
-	<td id="baseDexterityModifier">0</td>
-	<td id="baseConstitutionModifier">0</td>
-	<td id="baseIntelligenceModifier">0</td>
-	<td id="baseWisdomModifier">0</td>
-	<td id="baseCharismaModifier">0</td>
-  </tr>
-</table-->
 
 </br>
 

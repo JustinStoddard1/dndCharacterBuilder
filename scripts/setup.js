@@ -38,7 +38,8 @@ function update_baseScore(id, value){
 		return;
 	}
 	
-	let scoreDisplayId = id.split('_')[0];
+	let scoreName = extract_scoreName(id)
+	let scoreDisplayId = scoreName + "_baseScore"
 	let currValue = document.getElementById(scoreDisplayId).innerHTML
 	
 	// If "Remove" was selected, set the value to "-" and add the number back to the list of available numbers
@@ -61,8 +62,8 @@ function update_baseScore(id, value){
 	remainingAbilityScores.sort(function (a, b) {  return a - b;  });
 	remainingAbilityScores.reverse();
 	
-	document.getElementById(scoreDisplayId).innerHTML = value;
-	
+	characterInfo.baseScore[scoreName] = value;
+	characterInfo.baseModifier[scoreName] = get_modifier(value);
 	
 	scoreIds.forEach((scoreId)=>{
 		//let selectedRemainingScoreIndex = baseScoreSelection[scoreId].remainingScores.indexOf(baseScoreSelection[scoreId].remainingScores[value]) - 1
@@ -77,6 +78,8 @@ function update_baseScore(id, value){
 		
 		document.getElementById(scoreId + "_selector").innerHTML = innerHTML;
 	});
+	
+	refresh_display();
 }
 
 function populate_abilityScoreArrays(){
@@ -96,12 +99,48 @@ function change_abilityScoreArraySelection(arrayName){
 	selectedAbilityScoreArray = data.abilityScoreArrays.find(t => t.name === arrayName).stats;
 	remainingAbilityScores = selectedAbilityScoreArray;
 	populate_abilityScoreOptions();
+	reset_baseScores();
+	refresh_display();
+	
 }
 
 function get_modifier(val){
+	if (val === "-"){
+		return "-";
+	}
 	return Math.floor((val - 10)/2);
 }
 
 function update_abilityScoreModifier(modifierId, abilityScore){
 	document.getElementById(modifierId).innerHTML = get_modifier(abilityScore);
+}
+
+// Update read-only elements
+function refresh_display(){
+	refresh_abilityScoreModifiers();
+	refresh_abilityScores();
+}
+
+function refresh_abilityScoreModifiers(){
+	// Populate the base score modifier
+	scoreNames.forEach((scoreName)=>{
+		document.getElementById(scoreName + "_baseScoreModifier").innerHTML = characterInfo.baseModifier[scoreName];
+	});
+}
+
+function refresh_abilityScores(){
+	scoreNames.forEach((scoreName)=>{
+		document.getElementById(scoreName + "_baseScore").innerHTML = characterInfo.baseScore[scoreName];
+	});
+}
+
+function extract_scoreName(id){
+	return id.split('_')[0];
+}
+
+function reset_baseScores(){
+	scoreNames.forEach((scoreName)=>{
+		characterInfo.baseScore[scoreName] = "-";
+		characterInfo.baseModifier[scoreName] = "-";
+	});
 }
