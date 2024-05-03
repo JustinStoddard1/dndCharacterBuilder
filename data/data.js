@@ -1,10 +1,10 @@
 data = {};
 data.constraints = {};
-
 data.constraints.customAbilityScoreAtFirstLevelMax = 18;
 data.constraints.customAbilityScoreAtFirstLevelMin = 1;
 
 data.abilityScoreArrays = [];
+data.races = [];
 
 data.abilityScoreArrays.push(
 	{

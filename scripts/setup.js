@@ -11,12 +11,6 @@ function createSelectOption(value, description){
 	return '<option value="' + value + '">' + description + '</option>\n'
 }
 
-/*
-a.forEach((element) => {
-    console.log(element);
-});
-*/
-
 function populate_abilityScoreOptions(){
 	scoreIds.forEach((scoreId)=>{
 		let innerHTML = '<option value="select">Select</option>\n';
@@ -147,4 +141,33 @@ function reset_baseScores(){
 
 function change_characterName(name){
 	characterInfo.name = name;
+}
+
+function change_subRace(value){
+	
+}
+
+function change_race(value){
+	
+}
+
+function populate_races(){
+	let innerHTML = createSelectOption("", "Select");
+	data.races.sort();
+	data.races.forEach((race)=>{
+		let raceValue = race.name + "_" + race.source;
+		let raceDescription = race.name + " (" + race.source + ")";
+		innerHTML += createSelectOption(raceValue, raceDescription);
+	});
+	
+	document.getElementById("raceSelection").innerHTML = innerHTML;
+}
+
+function populate_subRaces(){
+	
+}
+
+function initialize_sources(){
+	populate_abilityScoreArrays();
+	populate_races();
 }

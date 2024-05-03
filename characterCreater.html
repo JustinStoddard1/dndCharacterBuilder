@@ -16,20 +16,26 @@ table, tr, th, td {
 <script src="./scripts/globals.js"></script>
 <script src="./scripts/setup.js"></script>
 <script src="./data/data.js"></script>
+<script src="./data/characterSource.js"></script>
 
 <b>Name:</b>
 <input type="text" id="characterName" onchange="change_characterName(this.value)"/>
 </br></br>
 
 <b>Race:</b>
-<select id="raceSelection" onchange="change_race(this.value)">
-	
-</select>
+<select id="raceSelection" onchange="change_race(this.value)"></select>
+<div id="raceDescription"></div>
+</br></br>
+
+
+<b>Subrace:</b>
+<select id="subRaceSelection" onchange="change_subRace(this.value)"></select>
+<div id="subRaceDescription"></div>
 </br></br>
 
 <b>Base Ability Score Array:</b> 
 <select id="abilityScoreArraySelection" onchange="change_abilityScoreArraySelection(this.value)">
-	
+
 </select>
 </br></br>
 
@@ -137,7 +143,7 @@ Something: <select id="myselect" onchange="change_myselect(this.value)">
 <button type="button" onclick="populate_abilityScoreValues()">Try it</button>
 
 <script>
-	populate_abilityScoreArrays();
+	initialize_sources();
 </script>
 
 <p>This example links to "myScript.js".</p>
